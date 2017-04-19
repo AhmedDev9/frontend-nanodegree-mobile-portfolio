@@ -16,8 +16,8 @@ The goal is to optimize a provided website with a number of optimization- and pe
 1. Move getting "body.scrollTop" out of the for loop since it is needed once.
 
 
-More Detail on the Website Performance Optimization portfolio project
-=============================================================
+More details on the Website Performance Optimization portfolio project
+======================================================================
 
 
 ## Website Performance Optimization portfolio project
