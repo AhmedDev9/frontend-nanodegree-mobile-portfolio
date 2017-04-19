@@ -1,14 +1,23 @@
-Welcome to Udacity Nanodegrees Project: Website Optimization
-=============================================================
+Udacity Nanodegrees Project: Website Optimization
+=================================================
 
 The goal is to optimize a provided website with a number of optimization- and performance-related issues so that it achieves a target PageSpeed score and runs at 60 frames per second.
 
 ## Optimization done on index.html
-1. remove the tag "link" for the web font since it slow down the Performance.
+1. Remove the tag "link" for the web font since it slow down the Performance.
 1. Make the "style.css" inline rather than import it externally.
-1. Add **media="print"** to the link that imports the "print.css"
+1. Add **media="print"** to the link that imports the "print.css".
 1. Make the "google-analytics" script async.
-1. Optimize the images "pizzeria.jpg" and "profilepic.jpg" by compressing them 
+1. Optimize the images "pizzeria.jpg" and "profilepic.jpg" by compressing them.
+
+## Optimization done on main.js for pizza.html
+1. Reduce the amount of animated pizzas to 30 pizzas.
+1. Get rid of querySelectorAll and replace it with getElementsByClassName since it is fastest as per https://jsperf.com/getelementsbyclassname-vs-queryselectorall/15
+1. Move getting "body.scrollTop" out of the for loop since it is needed once.
+
+
+More Detail on the Website Performance Optimization portfolio project
+=============================================================
 
 
 ## Website Performance Optimization portfolio project
