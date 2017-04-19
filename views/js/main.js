@@ -449,7 +449,8 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    // >>> replaced querySelectorAll with getElementsByClassName for better performance
+
+    // get rid of querySelectorAll and replace it with getElementsByClassName since it is fastest as per https://jsperf.com/getelementsbyclassname-vs-queryselectorall/15
     var pizzaContainers = document.getElementsByClassName("randomPizzaContainer");
     var dx = determineDx(pizzaContainers[0], size);
     var newwidth = (pizzaContainers[0].offsetWidth + dx) + 'px';
@@ -503,13 +504,11 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-  // >>> scrollTop property sets or returns the number of pixels
-  // >>> the body has been scrolled vertically; since this is a
-  // >>> static calculated value it doesn't need to be recalculated
-  // >>> every time in the for loop (which slowed the render process down!)
+
+  // move the below calculating out of the for loop
   var startP = document.body.scrollTop / 1250;
 
-  // >>> replaced querySelectorAll with getElementsByClassName for better performance
+  // get rid of querySelectorAll and replace it with getElementsByClassName since it is fastest as per https://jsperf.com/getelementsbyclassname-vs-queryselectorall/15
   var items = document.getElementsByClassName('mover');
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(startP + (i % 5));
@@ -533,7 +532,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  // >>> reduced the amount of animated pizzas to 30 pizzas
+  // reduced the amount of animated pizzas to 30 pizzas
 
   for (var i = 0; i <= 30; i++) {
     var elem = document.createElement('img');
